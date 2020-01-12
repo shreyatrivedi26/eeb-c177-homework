@@ -17,3 +17,7 @@ Friday:
 Breakfast: Avocado Toast  
 Lunch: Egg Roll
 Dinner: Pizza
+
+Saturday:
+Breakfast: Poha
+Lunch: Beans, Yoghurt and Tortillas 
