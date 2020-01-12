@@ -21,3 +21,7 @@ Dinner: Pizza
 Saturday:
 Breakfast: Poha
 Lunch: Beans, Yoghurt and Tortillas 
+Dinner: Rice dumplings and lentil soup 
+
+Sunday: 
+Breakfast: Avocado Toast 
