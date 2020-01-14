@@ -1,0 +1,97 @@
+1. abcdefg
+   abcde
+   abc
+
+Solution pattern: abc
+
+2. abc123yz
+   define"123"
+   var g= 123
+
+Solution pattern: 123 or \d\d\d
+
+3.Match:  cat.
+  Match:  896.
+  Match:  ?=+.
+  Skip:   abc1
+
+Solution pattern: \. or ...\.
+
+4.Match: can  
+  Match: man
+  Match: fan
+  Skip:  dan
+  Skip:  ran 
+  Skip:  pan
+
+Solution Pattern: [cmf]an or [^drp]an
+
+5.Match: hog 
+  Match: dog
+  Skip:  bog
+
+Solution Pattern: [^b]og
+
+6. Match:Ana
+   Match:Bob
+   Match:CpC
+   Skip: aax
+   Skip: bby
+   Skip: ccz
+
+Solution Pattern: [A-C][n-p][a-c] 
+
+7. Match: wazzzzzup
+   Match: wazzzup
+   Skip:  wazup
+
+Solution Pattern: waz{3,5}up
+
+8. Match: aaaabcc 
+   Match: aabbbbc
+   Match: aacc
+   Skip:  a
+
+Solution Pattern: aa+b*c+  or aa+[b-c]+ 
+
+9. Match: 1 file found?
+   Match: 2 files found?
+   Match: 24 files found?
+   Skip:  No file found.
+
+Solution Pattern: \d+ files? found\?
+
+10. Match: 1. abc
+    Match: 2.  abc
+    Match: 3.   abc
+    Skip:  4.abc
+
+Solution Pattern: \d.\s+abc
+
+11. Match: Mission: successful
+    Skip:  last Mission: Unsuccessful 
+    Skip:  Next Mission: Successful upon capture of target 
+
+Solution: ^Mission:\s*successful$
+
+12. Capture: file_record-transcript.pdf
+    Capture: file_07241999.pdf
+    Skip:    testfile_fake.pdf.tmp
+
+Solution: ^(file_.*)\.pdf$
+
+13. 
+
+Solution: (...\s(\d+)) or (\w+\s(\d+))
+
+14. 
+
+Solution: (\d+).(\d+) or (/d+)x(\d+) 
+          
+15. 
+
+Solution: ^I\slove\s(cats|dogs)
+
+16.  
+
+Solution: .*
