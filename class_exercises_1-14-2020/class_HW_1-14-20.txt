@@ -54,11 +54,12 @@ List filename matching a pattern:
    It will give all results of those which are followed by t and ending with -ane.pdb 
 
 2. ls *t?ne.pdb (Wrong)
-   There should be two ?? after t to be correct. Following was the error: 
+   There should be two ?? after t to accomodate all *thane-s and  be correct. Following was the error: 
 	ls: cannot access '*t?ne.pdb': No such file or directory
+	Outputs would only be with suffix -tane. Eg. Pentane, Octane
 
 3. ls *t??ne.pdb
-   Correct
+   Correct. Outputs are Ethane and Methane.
 
 4. ls ethane.*
    Gives only ethane. 
