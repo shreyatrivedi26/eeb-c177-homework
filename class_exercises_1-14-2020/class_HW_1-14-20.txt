@@ -1,0 +1,82 @@
+					Class Assignment: January 14th, 2020 
+
+Creating files in different way: 
+
+1.  A touch command is used to create empty editable text files which can be mo$
+They can be accessed and viewed in any GUIs and are diplayed when searched for.
+
+2. The command ls -l gives the lengthy/detailed description of the file. The de$
+
+3. touch function can be used to create empty writable outputs which can be edited 
+at user's convinience later. Eg: A Grocery list editable every week.  
+
+Moving files to a new folder: 
+
+1. mv sucrose.dat maltose.dat ../raw 
+
+Since ../ takes to the parent directory which the the directory preceeding the current working directory. 
+
+Renaming files: 
+
+1. mv stastics.txt statistics.txt (Answer 2 is correct)
+
+mv command is used for changing the name of the file or a directory in the shell script.
+
+Moving and Copying: 
+
+1. Since parent directory 'in this case, jamie' is the directory preceeding the current working directory viz 'data', the file protein-saved.dat is moved to that whereas
+ the protein.dat file is moved to 'recombine' directory within the 'data'. Hence, the only thing remaining in 'data' is 'recomine' directory. Hence, the
+ correct answer is 2. 
+
+Removing safely: 
+
+1. By using the interactive option (-i) with the remove command (rm), a warning or a confirmation prompt shows up. This will prevent the user 
+from permanently deleting relevant files by rechecking it again before deleting.     
+
+Copying with multiple filenames: 
+
+1. cp commands works with multiple files as well. 
+                    cp animal.dat amino-acid.dat backup/ 
+The above command successfully copied the files from the source to destination directory viz. backup. 
+
+2. When three files are copied to a directory but there is no directory defined in the end, cp function will give an error:
+
+        cp animal.dat amino-acid.dat morse.txt
+	cp: target 'morse.txt' is not a directory
+
+However, cp copies all the three files when used in a complete syntax: 
+
+	cp animal.dat amino-acid.dat morse.txt backup/
+
+List filename matching a pattern: 
+
+1. ls *t*ane.pdb (Wrong)
+   It will give all results of those which are followed by t and ending with -ane.pdb 
+
+2. ls *t?ne.pdb (Wrong)
+   There should be two ?? after t to be correct. Following was the error: 
+	ls: cannot access '*t?ne.pdb': No such file or directory
+
+3. ls *t??ne.pdb
+   Correct
+
+4. ls ethane.*
+   Gives only ethane. 
+
+More on wildcards: 
+
+1. cp *caliberation* backup/caliberation
+   cp 2015-11*-??*.txt send_to_bob/all_november_files
+   cp 2015-1?-23*.txt send_to_bob/all_datsets_created_on_23rd
+
+2. mv fructose.dat sucrose.dat analysed/ or mv *dat analysed/
+
+Reproduce a folder structure: 
+
+mkdir makes one directory at a time and cannot create sub-directories without the existance of the parent directory. Hence, 
+mkdir should first be used to create the parent directory and then proceed with the sub-directories. Following error occurs:
+	mkdir 2016-05-20/data/raw
+	mkdir: cannot create directory ‘2016-05-20/data/raw’: No such file or directory
+
+Hence, the correct options are 1 and 2 as they first create the parent directories and then sub-directories. 
+  
