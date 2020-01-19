@@ -1,0 +1,13 @@
+2.1 DNA Sequence: 
+
+1.Write a regular expression that will match any bases with at least 2 c’s
+ but no more than 5 c’s.
+
+Answer: c{2,5}
+
+
+2.Write a regular expression that will match any ct followed by an a,c,t
+ (not g). Your resulting matches should be 3 characters long each.
+
+Answer: (ct)[act]
+

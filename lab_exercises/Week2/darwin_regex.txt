@@ -1,0 +1,19 @@
+2.2 Searching Through Text:
+
+1. \bs\S*\b or \bs\w+\b 
+
+2. \w+[.]
+
+3. \s*[^.?]* or [^.?]*(\w+)
+
+4. \s*[^.?]*struggle for existence[^?]*\?
+
+5. (?:[?.]\s*)(\w+)
+
+The )?: is the non-capturing operartor which refers to the match group where it 
+matches anything following : within the (). The first bracket () matches and 
+selects all the spaces(\s*) which are followed by . and ?. 
+Once the spaces are selected, it would hence select the end of every sentence.
+Hence, any word following the space becomes the first word of the following 
+sentence.(\w+)  
+
