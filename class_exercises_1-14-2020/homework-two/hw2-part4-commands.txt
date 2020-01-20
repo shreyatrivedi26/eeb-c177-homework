@@ -1,0 +1,10 @@
+Part 4: 
+
+2.1  sort fish_species.txt > fishes-sort.txt
+
+2.2  sort -r fish_species.txt > fishes-rev-sort.txt
+
+2.3  The textbook under 1.5.2 describes the usage of unique (uniq) command. It says that the file should be 
+    sorted before using uniq command for it to wiork properly. Hence, the file is sorted first. 
+
+     sort fish_species.txt|uniq  > fishes-unique.txt 
