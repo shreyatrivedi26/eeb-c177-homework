@@ -1,1 +1,1 @@
-  11   22 1655 Pacific_25lines.txt
+11 Pacific_25lines.txt
