@@ -6,3 +6,15 @@ Output: TaxID;Order;Family;Genus;Scientific_name;AdultBodyMass_g;Sources_AdultBo
 Sources_Max_longevity;Rspan_d;AFR_d;Data_AFR;Calculated_GL_d;GenerationLength_d;Sources_GL
 
 Delimiter: semicolon (;) 
+
+2. head -n 11 Pacifici2013_data.csv |cut -d ";" -f 3
+
+Here 11 entries are used as the first column is the header of the file (Family).  
+
+Using Tail command: 
+
+ tail -n 5 Pacifici2013_data.csv
+
+1. tail -n +2 Pacifici2013_data.csv (This will skip the header of the file) 
+
+2. tail -n +2 Pacifici2013_data.csv | head -n 10 > Pacifici_10.txt
