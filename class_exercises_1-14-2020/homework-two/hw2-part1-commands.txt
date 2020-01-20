@@ -17,4 +17,10 @@ Using Pipe operator:
 
 head 25 Pacifici2013_data.csv |wc -l > Pacific_25linewords.txt
 
+Part 3: 
+
+1. ls ~/Developer/Repos/CSB/unix/data/ | wc -l > pipe_data_lines.txt
+
+2. cat pp*.fasta|wc -c > fasta-cat.txt
+
 
