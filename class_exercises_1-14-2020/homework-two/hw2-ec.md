@@ -1,0 +1,117 @@
+Exercise 1.10.1 
+
+2. Size of the file is 1 byte. 
+
+ ls -l Marra2014_data.fasta 
+
+Output:
+ -rw-r--r-- 1 eebc177student eebc177student 566026 Jan  9 10:34 Marra2014_data.fasta
+
+3. cp Marra2014_data.fasta My_file.fasta
+
+4. 16 contigs are classified as isogroup00036. 
+
+         grep -c isogroup00036 My_file.fasta 
+
+grep command helps in finding the term while -c counts the occurance. 
+
+5. tr "  " ","< My_file.fasta > My_file_delim.fasta
+
+Output: 
+
+head -n 10 My_file_delim.fasta 
+
+>contig00001,,length=527,,numreads=2,,gene=isogroup00001,,status=it_thresh
+ATCCTAGCTACTCTGGAGACTGAGGATTGAAGTTCAAAGTCAGCTCAAGCAAGAGATTTG
+TTTACAATTAACCCACAAAAGGCTGTTACTGAAGGTGTGGCTTAAGTGTCAGAGCAACAG
+CTATGAGTGGAGGAATTTTCTATTACAATATAATTTCATCTCTGGTAAATTGACCAATTA
+ACTGGAACTTTTTCCAACTGAAATAAATGGTAAACTTTTTATCCACCATTCTGCCATCTG
+ACTCACAAAGACCCATGGGAATGGGTGATGAAATCCAACATGCTTCTTTGTAGCAAAAAT
+AAATAAAATCCCCAGAAGGGTGAGGTAAATGGAAAACTCCAAACTCGCCCCTCAGGTGGG
+TGTAATTTACCCAAGTCTGAGAGGAGGCAGAGTTTTTCCCAATGGACTTTGGTTAAGTGA
+GATATGCTGGTCTGTAGAAGGAGGGAGTTCTAGGAAAACAGACACTTAAGTAGGGCCGAA
+CTAAAAATTGTATCAGTCAGATCTTCATGTGAAGTCCTGTGTGCCCA
+
+7. I did this in multiple steps because I was not able to execute a single command for 
+this. 
+
+7.1 Created a file with only the headers of all the bases:
+
+grep numreads=* My_file_delim.fasta | sort -rn -k 3 > easyfile.fasta
+
+head -n 10 easyfile.fasta
+ 
+>contig01385,,length=1965,,numreads=7,,gene=isogroup00043,,status=isotig
+>contig01384,,length=3094,,numreads=71,,gene=isogroup00043,,status=isotig
+>contig01380,,length=1545,,numreads=10,,gene=isogroup00043,,status=isotig
+>contig01379,,length=124,,numreads=56,,gene=isogroup00042,,status=isotig
+>contig01378,,length=575,,numreads=57,,gene=isogroup00042,,status=isotig
+>contig01375,,length=522,,numreads=5,,gene=isogroup00042,,status=isotig
+>contig01374,,length=509,,numreads=10,,gene=isogroup00042,,status=isotig
+>contig01373,,length=178,,numreads=33,,gene=isogroup00042,,status=isotig
+>contig01372,,length=1215,,numreads=39,,gene=isogroup00042,,status=isotig
+>contig01369,,length=272,,numreads=40,,gene=isogroup00042,,status=isotig
+
+7.2 Extracted only the numread column from this: 
+
+cut -d "," -f 5 easyfile.fasta > numreads.fasta
+
+7.3 Sorted the numreads using sort -rn:
+
+sort -rn numreads.fasta | head -n 5
+numreads=995
+numreads=99
+numreads=99
+numreads=99
+numreads=99
+
+7.4 Looked for the corresponding contig to the highest value of numreads which is 995:
+
+grep numreads=995 easyfile.fasta 
+
+>contig00329,,length=117,,numreads=995,,gene=isogroup00002,,status=it_thresh
+
+Hence, contig00329 has highest value of numreads = 995. 
+
+
+6. This question took a lot of time as the unique value which I got using the uniq 
+command was wrong and couldnt capture the actual unique isogroups.
+
+First attempt: 
+ grep -c isogroup* My_file_delim.fasta | sort -rn|uniq
+
+No. of unique isogroups:
+955
+
+grep selected the isogroups and sort sorted them numerically in a reverse order. Unique
+ selected only the unique ones and -c counted those.
+
+This looked wrong so I tried doing it a longer way. 
+
+6.1 Created a file with only headers for easy identification (as mentioned in 7) named
+    easy file.fasta. Then extracted the isogroups column from it.  
+
+    cut -d "," -f 7 easyfile.fasta > isogroup.fasta
+
+6.2 Sorted the isogroup file and then used the uniq fuction to extract unique values only 
+
+sort isogroup.fasta | uniq| head -n 10
+
+gene=isogroup00001
+gene=isogroup00002
+gene=isogroup00003
+gene=isogroup00004
+gene=isogroup00005
+gene=isogroup00006
+gene=isogroup00007
+gene=isogroup00008
+gene=isogroup00009
+gene=isogroup00010
+
+6.3 Tried to use the -c command in combination with uniq to find the count but faced 
+ errors. Hence, made a separate .txt file and got the count from there. 
+
+      sort isogroup.fasta | uniq | -c (Did not work)
+
+The .txt file provides the number of lines which was equal to number of unique isogroups.
+
