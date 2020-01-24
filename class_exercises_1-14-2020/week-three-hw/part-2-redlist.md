@@ -4,7 +4,9 @@
 
 3.1 `cut -d "," -f 10 European_Red_List.csv | grep -wo '[[:alnum:]]\+'|sort|uniq -d -c`
 
-..*Output:
+
+Output:
+
     464 CR
    2409 DD
     687 EN
@@ -17,6 +19,7 @@
       8 PE
       8 RE
     885 VU
+
 
 3.2 
 
@@ -34,7 +37,8 @@ cut -d "," -f 10 Aves_data.csv | grep -wo '[[:alnum:]]\+'|sort|uniq -d -c
       4 RE
      39 VU
 
-3.3 ```python
+
+3.3 ```
 	cut -d "," -f 5 Aves_data.csv > Aves_order.csv
 	cut -d "," -f 10 Aves_data.csv > Aves_Redlist.csv
 	paste Aves_order.csv Aves_Redlist.csv -d "-" > order_redlist.csv
